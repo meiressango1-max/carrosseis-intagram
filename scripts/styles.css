@@ -1,0 +1,340 @@
+:root {
+  --vinho: #5C1A24;
+  --vinho-2: #4A1520;
+  --dourado: #BE9B4E;
+  --dourado-light: #D9BE84;
+  --creme: #FBF7EF;
+  --vermelho: #C1443A;
+  --verde: #4C7A5E;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  width: 1080px;
+  height: 1350px;
+  overflow: hidden;
+}
+
+body {
+  font-family: 'Work Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.card {
+  position: relative;
+  width: 1080px;
+  height: 1350px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card--vinho {
+  background: var(--vinho);
+  background-image:
+    radial-gradient(circle at 12% 8%, rgba(190,155,78,0.10), transparent 42%),
+    radial-gradient(circle at 92% 95%, rgba(190,155,78,0.10), transparent 40%);
+}
+
+.card--creme {
+  background: var(--creme);
+  background-image:
+    radial-gradient(circle at 96% 4%, rgba(92,26,36,0.045), transparent 40%),
+    radial-gradient(circle at 2% 98%, rgba(92,26,36,0.045), transparent 38%);
+}
+
+/* ---------- progress dots ---------- */
+.dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  padding-top: 56px;
+}
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.dots--onvinho .dot { background: rgba(251,247,239,0.28); }
+.dots--onvinho .dot.active { background: var(--dourado); width: 26px; border-radius: 6px; }
+.dots--oncreme .dot { background: rgba(92,26,36,0.16); }
+.dots--oncreme .dot.active { background: var(--dourado); width: 26px; border-radius: 6px; }
+
+/* ---------- footer ---------- */
+.footer {
+  position: absolute;
+  left: 80px;
+  right: 80px;
+  bottom: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer .line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 46px;
+  height: 1px;
+}
+.footer--onvinho .line { background: rgba(251,247,239,0.18); }
+.footer--oncreme .line { background: rgba(92,26,36,0.14); }
+
+.footer .handle {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  letter-spacing: 0.02em;
+}
+.footer--onvinho .handle { color: rgba(251,247,239,0.85); }
+.footer--oncreme .handle { color: rgba(92,26,36,0.72); }
+
+.footer .brand {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 700;
+  font-size: 19px;
+  letter-spacing: 0.14em;
+  color: var(--dourado);
+}
+
+/* ================= COVER (card 1) ================= */
+.cover-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 100px;
+  gap: 34px;
+  margin-top: -20px;
+}
+
+.cover-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 80px;
+  line-height: 1.14;
+  text-align: center;
+  color: var(--creme);
+  max-width: 880px;
+  letter-spacing: -0.01em;
+}
+
+.cover-subtitle {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 34px;
+  text-align: center;
+  color: var(--dourado-light);
+  max-width: 700px;
+  line-height: 1.3;
+}
+
+.cover-drag {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 6px;
+}
+.cover-drag .txt {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 600;
+  font-size: 21px;
+  letter-spacing: 0.22em;
+  color: var(--dourado);
+}
+.cover-drag .arrows {
+  display: flex;
+  gap: 2px;
+}
+.cover-drag svg { width: 20px; height: 20px; }
+
+.seal {
+  margin-top: 12px;
+  width: 268px;
+  height: 268px;
+  border-radius: 50%;
+  border: 2px solid var(--dourado);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  position: relative;
+}
+.seal::before {
+  content: '';
+  position: absolute;
+  inset: 12px;
+  border: 1px solid rgba(190,155,78,0.55);
+  border-radius: 50%;
+}
+.seal .mp4 {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 46px;
+  color: var(--creme);
+  letter-spacing: 0.03em;
+}
+.seal .rule {
+  width: 46px;
+  height: 2px;
+  background: var(--dourado);
+}
+.seal .tagline {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 600;
+  font-size: 13.5px;
+  letter-spacing: 0.09em;
+  color: var(--dourado-light);
+  text-align: center;
+  line-height: 1.7;
+  max-width: 175px;
+  text-transform: uppercase;
+}
+
+/* ================= MITO/VERDADE CARDS ================= */
+.mv-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 90px;
+  gap: 30px;
+  margin-top: -10px;
+}
+
+.mv-number {
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: 200px;
+  line-height: 1;
+  color: rgba(92,26,36,0.08);
+  position: absolute;
+  top: 108px;
+  right: 64px;
+  letter-spacing: -0.02em;
+  user-select: none;
+}
+
+.mv-eyebrow {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 700;
+  font-size: 17px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(92,26,36,0.45);
+}
+
+.selo {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+.selo-icon {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.10);
+}
+.selo-icon svg { width: 40px; height: 40px; }
+.selo.mito .selo-icon { background: var(--vermelho); }
+.selo.verdade .selo-icon { background: var(--verde); }
+
+.selo-label {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 62px;
+  letter-spacing: 0.01em;
+}
+.selo.mito .selo-label { color: var(--vermelho); }
+.selo.verdade .selo-label { color: var(--verde); }
+
+.mv-text {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 500;
+  font-size: 35px;
+  line-height: 1.45;
+  color: var(--vinho);
+  max-width: 900px;
+}
+.mv-text.verdade-text { font-weight: 500; color: var(--vinho-2); }
+
+.separator {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.separator .line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--dourado), var(--dourado), transparent);
+}
+.separator .diamond {
+  width: 13px;
+  height: 13px;
+  background: var(--dourado);
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}
+
+/* ================= CLOSING (card 7) ================= */
+.closing-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 96px;
+  gap: 40px;
+  margin-top: -20px;
+}
+
+.closing-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 66px;
+  line-height: 1.2;
+  text-align: center;
+  color: var(--creme);
+  max-width: 840px;
+}
+
+.closing-subtitle {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 1.5;
+  text-align: center;
+  color: rgba(251,247,239,0.82);
+  max-width: 720px;
+}
+
+.closing-button {
+  margin-top: 4px;
+  background: var(--dourado);
+  color: var(--vinho);
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 700;
+  font-size: 27px;
+  letter-spacing: 0.01em;
+  padding: 24px 52px;
+  border-radius: 60px;
+  box-shadow: 0 10px 26px rgba(0,0,0,0.22);
+}
+
+.closing-quote {
+  margin-top: 6px;
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 32px;
+  color: var(--dourado-light);
+}

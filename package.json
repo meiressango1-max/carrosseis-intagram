@@ -1,0 +1,12 @@
+{
+  "name": "carrosseis-instagram",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "render": "node scripts/render.js"
+  },
+  "dependencies": {
+    "playwright": "^1.62.1",
+    "sharp": "^0.35.3"
+  }
+}

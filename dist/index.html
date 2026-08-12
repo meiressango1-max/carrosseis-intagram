@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Carrossel — Mito ou Verdade | O Corpo Responde™</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root { --vinho:#5C1A24; --dourado:#BE9B4E; --creme:#FBF7EF; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--vinho);
+    color: var(--creme);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    padding: 48px 24px 80px;
+  }
+  h1 {
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    margin-bottom: 8px;
+  }
+  p.sub {
+    text-align: center;
+    color: var(--dourado);
+    margin-top: 0;
+    margin-bottom: 40px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .card {
+    background: rgba(251,247,239,0.04);
+    border: 1px solid rgba(190,155,78,0.25);
+    border-radius: 12px;
+    overflow: hidden;
+    text-decoration: none;
+    color: var(--creme);
+  }
+  .card img { display: block; width: 100%; height: auto; }
+  .card .label {
+    padding: 10px 14px;
+    font-size: 14px;
+    letter-spacing: 0.04em;
+    color: var(--dourado);
+  }
+</style>
+</head>
+<body>
+  <h1>Carrossel "Mito ou Verdade"</h1>
+  <p class="sub">O Corpo Responde™ — Método MP4</p>
+  <div class="grid">
+    <a class="card" href="01-capa.png"><img src="01-capa.png" alt="Card 1 - Capa"><div class="label">1 · Capa</div></a>
+    <a class="card" href="02-mito-01.png"><img src="02-mito-01.png" alt="Card 2 - Mito 01"><div class="label">2 · Mito 01</div></a>
+    <a class="card" href="03-mito-02.png"><img src="03-mito-02.png" alt="Card 3 - Mito 02"><div class="label">3 · Mito 02</div></a>
+    <a class="card" href="04-mito-03.png"><img src="04-mito-03.png" alt="Card 4 - Mito 03"><div class="label">4 · Mito 03</div></a>
+    <a class="card" href="05-mito-04.png"><img src="05-mito-04.png" alt="Card 5 - Mito 04"><div class="label">5 · Mito 04</div></a>
+    <a class="card" href="06-mito-05.png"><img src="06-mito-05.png" alt="Card 6 - Mito 05"><div class="label">6 · Mito 05</div></a>
+    <a class="card" href="07-fechamento.png"><img src="07-fechamento.png" alt="Card 7 - Fechamento"><div class="label">7 · Fechamento</div></a>
+  </div>
+</body>
+</html>
