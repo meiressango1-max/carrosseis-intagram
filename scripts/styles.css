@@ -338,3 +338,23 @@ body {
   font-size: 32px;
   color: var(--dourado-light);
 }
+
+/* ================= LISTA CARDS (sinais / erros) ================= */
+.ls-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 68px;
+  line-height: 1.15;
+  color: var(--vinho);
+  max-width: 900px;
+  letter-spacing: -0.01em;
+}
+.ls-text {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 1.45;
+  color: var(--vinho-2);
+  max-width: 900px;
+}
+.cover-title, .closing-title, .ls-title { text-wrap: balance; }
