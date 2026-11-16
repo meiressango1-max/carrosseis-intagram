@@ -3,7 +3,8 @@ const fs = require('fs');
 const path = require('path');
 const { chromium } = require('playwright');
 const sharp = require('sharp');
-const { SEMANA1, TOTAL_CARDS } = require('./data');
+const { SEMANA1 } = require('./data');
+let TOTAL_CARDS = 7;
 
 const ROOT = path.join(__dirname, '..');
 const OUT_ROOT = path.join(ROOT, 'dist', 'semana1');
@@ -53,25 +54,40 @@ const mv = (p, i) => shell(`
     ${footer('creme')}
   </div>`);
 
-const lista = (p, i) => shell(`
+const info = (p, i) => shell(`
+  <div class="card card--creme">
+    ${dots(i + 1, 'creme')}
+    <div class="mv-number">${p.n}</div>
+    <div class="mv-content">
+      <div class="mv-eyebrow">${p.eyebrow}</div>
+      <div class="ls-title">${p.titulo}</div>
+      <div class="separator"><div class="line"></div><div class="diamond"></div><div class="line"></div></div>
+      ${p.bullets ? `<ul class="bul">${p.bullets.map(b => `<li>${b}</li>`).join('')}</ul>` : `<div class="ls-text">${p.texto}</div>`}
+    </div>
+    ${footer('creme')}
+  </div>`);
+
+const duo = (p, i) => shell(`
   <div class="card card--creme">
     ${dots(i + 1, 'creme')}
     <div class="mv-number">${p.n}</div>
     <div class="mv-content">
       <div class="mv-eyebrow">Sinal nº ${p.n}</div>
-      <div class="ls-title">${p.titulo}</div>
+      <div class="selo mito"><div class="selo-icon">${X_ICON}</div><div class="selo-label">SINAL</div></div>
+      <div class="mv-text" style="font-weight:700">${p.a}</div>
       <div class="separator"><div class="line"></div><div class="diamond"></div><div class="line"></div></div>
-      <div class="ls-text">${p.texto}</div>
+      <div class="selo verdade"><div class="selo-icon">${CHECK_ICON}</div><div class="selo-label">O QUE FAZER</div></div>
+      <div class="mv-text verdade-text">${p.b}</div>
     </div>
     ${footer('creme')}
   </div>`);
 
 const closing = (c) => shell(`
   <div class="card card--vinho">
-    ${dots(6, 'vinho')}
+    ${dots(TOTAL_CARDS - 1, 'vinho')}
     <div class="closing-content">
       <div class="closing-title">${c.title}</div>
-      <div class="closing-subtitle">${c.subtitle}</div>
+      <div class="closing-byline">${c.subtitle}</div>
       <div class="closing-button">${c.button}</div>
       <div class="closing-quote">${c.quote}</div>
     </div>
@@ -86,11 +102,13 @@ async function main() {
 
   for (const car of SEMANA1) {
     const dir = path.join(OUT_ROOT, car.slug);
-    fs.mkdirSync(dir, { recursive: true });
+    fs.rmSync(dir, { recursive: true, force: true }); fs.mkdirSync(dir, { recursive: true });
+    TOTAL_CARDS = car.cards.length + 2;
+    const kinds = { mv, info, duo };
     const cards = [
       { name: '01-capa', html: cover(car.cover) },
-      ...car.items.map((p, i) => ({ name: `0${i + 2}-item-${p.n}`, html: car.type === 'mv' ? mv(p, i) : lista(p, i) })),
-      { name: '07-fechamento', html: closing(car.closing) },
+      ...car.cards.map((p, i) => ({ name: `${String(i + 2).padStart(2, '0')}-card-${p.n}`, html: kinds[p.type](p, i) })),
+      { name: `${String(car.cards.length + 2).padStart(2, '0')}-fechamento`, html: closing(car.closing) },
     ];
     for (const card of cards) {
       await page.setContent(card.html, { waitUntil: 'networkidle' });

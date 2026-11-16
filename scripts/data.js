@@ -40,124 +40,78 @@ const CLOSING_DEFAULT = {
   quote: 'Mulher forte é mulher livre.',
 };
 
-// ---------------- Semana 1 (16–22/11/2026) ----------------
+// ---------------- Semana 1 (16–22/11/2026) — versão 2 (conteúdo prático) ----------------
+// type de card: 'mv' (mito/verdade) | 'duo' (sinal + o que fazer) | 'info' (título + texto ou bullets)
+const BYLINE = 'Meire Sango · Educação Física · Pós em Nutrição · 25+ anos';
+
 const SEMANA1 = [
   {
-    slug: 'proteina-mito-verdade',
-    type: 'mv',
+    slug: 'guia-proteina-40',
     cover: {
-      title: '5 mitos sobre proteína que travam seu resultado depois dos 40',
-      subtitle: '(o nº 4 muita gente nem questiona)',
+      title: 'Quanta proteína você precisa depois dos 40? O guia simples',
+      subtitle: '(com números e exemplos para salvar)',
     },
-    items: [
-      {
-        n: '01',
-        mito: 'Proteína é só para quem quer ganhar músculo.',
-        verdade: 'Depois dos 40, ela ajuda a manter a massa muscular que o corpo tende a perder. Serve para quem treina e para quem quer envelhecer forte.',
-      },
-      {
-        n: '02',
-        mito: 'Na menopausa, comer o mínimo é o único jeito de controlar o peso.',
-        verdade: 'Comer pouco demais costuma piorar a perda de massa muscular. Proteína suficiente e comida de verdade pesam mais do que cortar tudo.',
-      },
-      {
-        n: '03',
-        mito: 'Só dá para atingir a proteína do dia com suplemento.',
-        verdade: 'Ovos, frango, peixe, iogurte, queijos, feijão e lentilha já ajudam muito. Suplemento é complemento, não obrigação.',
-      },
-      {
-        n: '04',
-        mito: 'Proteína no jantar engorda.',
-        verdade: 'O que pesa é o total do dia, não o horário. Distribuir proteína nas refeições costuma ajudar na saciedade.',
-      },
-      {
-        n: '05',
-        mito: 'Quanto mais proteína, melhor o resultado.',
-        verdade: 'Mais não é sempre melhor. O que funciona é consistência e treino de força junto. Se tiver alguma condição de saúde, siga a orientação do seu médico ou nutricionista.',
-      },
+    cards: [
+      { type: 'info', n: '01', eyebrow: 'Por que importa', titulo: 'Por que a proteína pesa mais depois dos 40',
+        texto: 'Com o passar dos anos o corpo perde massa muscular aos poucos, principalmente sem treino de força e sem proteína suficiente. Músculo é força, equilíbrio, metabolismo ativo e ossos mais protegidos.' },
+      { type: 'info', n: '02', eyebrow: 'Quanto comer', titulo: 'Quanto comer por dia',
+        texto: 'Referência geral para mulheres saudáveis que treinam: cerca de 1,2 a 1,6 g de proteína por kg de peso. Exemplo: 65 kg = de 78 a 104 g por dia. É uma faixa geral: seu caso pede ajuste individual.' },
+      { type: 'info', n: '03', eyebrow: 'Como dividir', titulo: 'Como dividir ao longo do dia',
+        bullets: ['3 a 4 refeições com proteína', 'Mire cerca de 25 a 30 g em cada uma', 'Não deixe tudo para o jantar', 'Distribuir ajuda na saciedade'] },
+      { type: 'info', n: '04', eyebrow: 'Na prática', titulo: 'Quanto é 25 a 30 g de proteína?',
+        bullets: ['100 g de frango, carne ou peixe cozido ≈ 25 a 30 g', '4 ovos ≈ 24 g', '1 xícara de lentilha cozida ≈ 18 g', 'Iogurte e queijos variam: confira o rótulo'] },
+      { type: 'info', n: '05', eyebrow: 'Exemplo', titulo: 'Exemplo de dia (ajuste ao seu peso)',
+        bullets: ['Café: ovos + iogurte', 'Almoço: frango ou peixe + feijão', 'Lanche: queijo ou iogurte', 'Jantar: ovos ou carne + legumes'] },
+      { type: 'info', n: '06', eyebrow: 'Atenção', titulo: 'Quem precisa de orientação individual',
+        texto: 'Se você tem doença renal, está grávida ou tem outra condição de saúde, ajuste a quantidade com seu médico ou nutricionista. Para a maioria das pessoas saudáveis, essas faixas são consideradas seguras.' },
     ],
     closing: {
-      ...CLOSING_DEFAULT,
-      title: 'Salva esse post: proteína é o seu aliado depois dos 40',
+      title: 'Salva este guia e marca a amiga que treina e come pouca proteína',
+      subtitle: BYLINE,
+      button: 'Salve. Marque. Siga.',
+      quote: 'Mulher forte é mulher livre.',
     },
   },
   {
-    slug: 'sinais-corpo-nao-responde',
-    type: 'lista',
+    slug: 'sinais-e-solucoes',
     cover: {
-      title: '5 sinais de que seu corpo parou de responder ao treino',
-      subtitle: '(o nº 2 quase ninguém percebe)',
+      title: 'Seu corpo parou de responder ao treino? 5 causas e o que fazer',
+      subtitle: '(cada sinal vem com a solução)',
     },
-    items: [
-      {
-        n: '01',
-        titulo: 'Você treina igual há meses',
-        texto: 'Mesma carga, mesma série, mesmo resultado. O corpo se adapta: sem progressão, ele para de responder.',
-      },
-      {
-        n: '02',
-        titulo: 'Você treina muito e come pouco',
-        texto: 'Cortar demais para compensar tira energia do treino e a massa muscular que sustenta o seu metabolismo.',
-      },
-      {
-        n: '03',
-        titulo: 'Você só faz cardio',
-        texto: 'Cardio é ótimo, mas sem treino de força você perde a base muscular que mantém o corpo ativo e firme.',
-      },
-      {
-        n: '04',
-        titulo: 'Você dorme mal e quase não se recupera',
-        texto: 'Sem sono e sem descanso, o treino vira só desgaste. É na recuperação que o corpo evolui.',
-      },
-      {
-        n: '05',
-        titulo: 'Você treina por culpa, não por estratégia',
-        texto: 'Treino sem plano vira punição. O corpo responde melhor a método do que a esforço aleatório.',
-      },
+    cards: [
+      { type: 'duo', n: '01', a: 'Você treina igual há meses', b: 'Aumente a carga ou as repetições aos poucos, a cada 2 a 4 semanas. Mude um exercício por vez.' },
+      { type: 'duo', n: '02', a: 'Você treina muito e come pouco', b: 'Coma o suficiente para sustentar o treino e inclua proteína em todas as refeições. Procure um nutricionista antes de cortar calorias.' },
+      { type: 'duo', n: '03', a: 'Você só faz cardio', b: 'Inclua 2 a 3 treinos de força por semana. Treino de corpo inteiro é um bom começo.' },
+      { type: 'duo', n: '04', a: 'Você dorme mal e quase não se recupera', b: 'Fixe um horário para dormir e reduza telas à noite. Se o sono ruim persiste, converse com seu médico.' },
+      { type: 'duo', n: '05', a: 'Você treina sem plano', b: 'Escolha um plano com progressão e anote carga e repetições por 4 semanas.' },
     ],
     closing: {
-      ...CLOSING_DEFAULT,
-      title: 'Se você se viu em algum sinal, salva esse post',
-      subtitle: 'O corpo não parou: ele só pede outro estímulo. Segue @meiresango para aprender qual.',
+      title: 'Qual desses 5 mais te pegou? Comenta o número e marca uma amiga',
+      subtitle: BYLINE,
+      button: 'Salve. Comente. Siga.',
+      quote: 'Mulher forte é mulher livre.',
     },
   },
   {
-    slug: 'menopausa-e-treino',
-    type: 'mv',
+    slug: 'menopausa-e-treino-v2',
     cover: {
-      title: '5 mitos sobre menopausa e treino que precisam acabar',
-      subtitle: '(o nº 5 é o mais comum)',
+      title: '5 mitos sobre menopausa e treino (e o que fazer no lugar)',
+      subtitle: '(com um plano mínimo para a semana)',
     },
-    items: [
-      {
-        n: '01',
-        mito: 'Com a menopausa, engordar é inevitável.',
-        verdade: 'As mudanças hormonais afetam o corpo, mas treino de força, proteína e sono ajudam a manter a composição corporal.',
-      },
-      {
-        n: '02',
-        mito: 'Na menopausa, treino de força não é indicado.',
-        verdade: 'Treino de força bem orientado ajuda a preservar músculos e ossos nessa fase. O segredo é a progressão certa.',
-      },
-      {
-        n: '03',
-        mito: 'Se o peso na balança não muda, nada mudou.',
-        verdade: 'A balança não mostra massa muscular, medidas nem energia. Observe também roupas, força e disposição.',
-      },
-      {
-        n: '04',
-        mito: 'É tarde demais para começar a treinar.',
-        verdade: 'Mulheres que começam depois dos 40, 50 ou 60 anos ainda ganham força, equilíbrio e autonomia.',
-      },
-      {
-        n: '05',
-        mito: 'Treinar todos os dias é o que faz o corpo responder.',
-        verdade: 'Descanso faz parte do resultado. O corpo responde ao estímulo e, principalmente, à recuperação.',
-      },
+    cards: [
+      { type: 'mv', n: '01', mito: 'Com a menopausa, engordar é inevitável.', verdade: 'Os hormônios mudam, mas treino de força, proteína e sono ajudam a manter a composição corporal. Comece com 2 treinos de força na semana.' },
+      { type: 'mv', n: '02', mito: 'Na menopausa, treino de força não é indicado.', verdade: 'Bem orientado, ele ajuda a preservar músculos e ossos. Comece leve e aumente a carga aos poucos.' },
+      { type: 'mv', n: '03', mito: 'Se o peso na balança não muda, nada mudou.', verdade: 'A balança não mede músculo nem energia. A cada 4 semanas, registre cintura, fotos, força e disposição.' },
+      { type: 'mv', n: '04', mito: 'É tarde demais para começar a treinar.', verdade: 'Quem começa depois dos 40, 50 ou 60 ainda ganha força e equilíbrio. O melhor dia é hoje, com um treino simples.' },
+      { type: 'mv', n: '05', mito: 'Treinar todos os dias faz o corpo responder mais.', verdade: 'Descanso faz parte do resultado. Alterne os dias e reserve pelo menos 1 dia de descanso completo.' },
+      { type: 'info', n: '06', eyebrow: 'Resumo', titulo: 'Seu plano mínimo da semana',
+        bullets: ['2 treinos de força (30 a 40 min)', 'Proteína em todas as refeições', 'Sono como prioridade: busque 7 horas ou mais', '1 dia de descanso completo'] },
     ],
     closing: {
-      ...CLOSING_DEFAULT,
-      title: 'Manda pra amiga que está na menopausa e precisa ouvir isso',
+      title: 'Manda pra amiga que está na menopausa e precisa desse plano',
+      subtitle: BYLINE,
+      button: 'Salve. Compartilhe. Siga.',
+      quote: 'Mulher forte é mulher livre.',
     },
   },
 ];

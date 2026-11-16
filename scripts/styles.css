@@ -358,3 +358,8 @@ body {
   max-width: 900px;
 }
 .cover-title, .closing-title, .ls-title { text-wrap: balance; }
+
+.bul { list-style: none; display: flex; flex-direction: column; gap: 22px; max-width: 900px; }
+.bul li { position: relative; padding-left: 44px; font-family: 'Work Sans', sans-serif; font-weight: 500; font-size: 36px; line-height: 1.35; color: var(--vinho-2); }
+.bul li::before { content: ''; position: absolute; left: 6px; top: 17px; width: 14px; height: 14px; background: var(--dourado); transform: rotate(45deg); }
+.closing-byline { font-family: 'Work Sans', sans-serif; font-weight: 600; font-size: 22px; letter-spacing: 0.04em; text-align: center; color: var(--dourado-light); max-width: 760px; line-height: 1.5; }
